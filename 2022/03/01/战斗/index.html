@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="战斗近战攻击强攻击和弱攻击：强攻击造成更多的伤害，但持续时间更长 拳击：反应迅速 踢：比拳更灵活，可以多元化， 例如让敌人失去平衡的扫堂腿或者飞脚 浮空技：可以让敌人打到空中，在空中玩家可以实施拦截或者反复击打 暗杀：通常需要蹲伏或者隐蔽点，在敌人没有察觉到你时将他击杀 抓技：在特定情况下才能使出来。一个角色抓住另一个角色，并将其控制、使出额外的招式 投技：把敌人从玩家身边甩开 呼巴掌：通常用来眩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="战斗">
+<meta property="og:url" content="http://example.com/2022/03/01/%E6%88%98%E6%96%97/index.html">
+<meta property="og:site_name" content="Naoko">
+<meta property="og:description" content="战斗近战攻击强攻击和弱攻击：强攻击造成更多的伤害，但持续时间更长 拳击：反应迅速 踢：比拳更灵活，可以多元化， 例如让敌人失去平衡的扫堂腿或者飞脚 浮空技：可以让敌人打到空中，在空中玩家可以实施拦截或者反复击打 暗杀：通常需要蹲伏或者隐蔽点，在敌人没有察觉到你时将他击杀 抓技：在特定情况下才能使出来。一个角色抓住另一个角色，并将其控制、使出额外的招式 投技：把敌人从玩家身边甩开 呼巴掌：通常用来眩">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-01T04:42:22.000Z">
+<meta property="article:modified_time" content="2022-03-27T06:35:38.726Z">
+<meta property="article:author" content="SakurajimaNaoko">
+<meta property="article:tag" content="《通关！游戏设计之道》">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/03/01/%E6%88%98%E6%96%97/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>战斗 | Naoko</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Naoko</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/01/%E6%88%98%E6%96%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SakurajimaNaoko">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Naoko">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          战斗
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-01 12:42:22" itemprop="dateCreated datePublished" datetime="2022-03-01T12:42:22+08:00">2022-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-27 14:35:38" itemprop="dateModified" datetime="2022-03-27T14:35:38+08:00">2022-03-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="战斗"><a href="#战斗" class="headerlink" title="战斗"></a>战斗</h1><h2 id="近战攻击"><a href="#近战攻击" class="headerlink" title="近战攻击"></a>近战攻击</h2><p>强攻击和弱攻击：强攻击造成更多的伤害，但持续时间更长</p>
+<p>拳击：反应迅速</p>
+<p>踢：比拳更灵活，可以多元化， 例如让敌人失去平衡的扫堂腿或者飞脚</p>
+<p>浮空技：可以让敌人打到空中，在空中玩家可以实施拦截或者反复击打</p>
+<p>暗杀：通常需要蹲伏或者隐蔽点，在敌人没有察觉到你时将他击杀</p>
+<p>抓技：在特定情况下才能使出来。一个角色抓住另一个角色，并将其控制、使出额外的招式</p>
+<p>投技：把敌人从玩家身边甩开</p>
+<p>呼巴掌：通常用来眩晕敌人</p>
+<p>格挡或取消：格挡能中止敌人的进攻</p>
+<p>防反和反击：防反让玩家定义直至袭来的攻击，通常还会让敌人眩晕。反击不仅是玩家能够制止敌人的攻击，海恩那个利用自己的攻击技能进行反击</p>
+<p>蓄力攻击</p>
+<p>嘲讽</p>
+<p>冲锋：让玩家回到原本站立位的更流畅的突刺攻击。将快速攻击和冲锋结合气力啊，创建一条攻击链。</p>
+<p>如果允许玩家接连不断地使出一系列的击打动作，就要保证攻击动画里玩家角色能向前移动</p>
+<p>用特别的视觉效果会使攻击显得生动</p>
+<h2 id="必杀技"><a href="#必杀技" class="headerlink" title="必杀技"></a>必杀技</h2><p>必杀技需要专门的出招表</p>
+<p>炫酷的特效</p>
+<p>很大的伤害</p>
+<p>夸张的体现出强力打击造成的影响</p>
+<p>近身攻击更刺激</p>
+<h2 id="武器"><a href="#武器" class="headerlink" title="武器"></a>武器</h2><p>每个英雄应该有属于自己的标志性武器</p>
+<p>给玩家个能够近距离观察武器的机会</p>
+<p>挥动武器时，让武器和周围环境发生些互动</p>
+<p>人们可以拿起周围的东西作为武器，也能轻而易举的放下</p>
+<p>锁定系统</p>
+<h2 id="战斗中的移动"><a href="#战斗中的移动" class="headerlink" title="战斗中的移动"></a>战斗中的移动</h2><p>躲闪和翻滚：让玩家快速躲避攻击，在使用翻滚后玩家应该能立刻站起来</p>
+<p>冲锋：向前推进的移动方式</p>
+<p>跳跃：通过障碍的跳跃，马里奥的屁股跳，攻击命中后，加入点反弹，可以跳过一连串敌人的脑袋</p>
+<p>子弹时间：需要让玩家知道什么时候开始，以一敌众，比别人移动灵活，制造精准射击的机会，让配乐和动作匹配，特效永远不嫌多</p>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>注意音效</p>
+<p>需要决定盾牌是否能被击碎</p>
+<p>通用格挡：按一个键就能横起武器</p>
+<p>针对位置的格挡：调整到正确高度来格挡攻击</p>
+<h3 id="盔甲"><a href="#盔甲" class="headerlink" title="盔甲"></a>盔甲</h3><p>需要考虑负重，不同区域的盔甲。</p>
+<p>盔甲也可以显示生命状况</p>
+<p>自定义盔甲</p>
+<h2 id="枪战"><a href="#枪战" class="headerlink" title="枪战"></a>枪战</h2><h3 id="行动"><a href="#行动" class="headerlink" title="行动"></a>行动</h3><p>需要考虑装填弹药的速度、装弹是自动还是手动、弹药是否有限、枪的射速、枪的火舌、一次射击能解决多个目标吗（像《overwatch》中的猩猩的一次能电好几个或者cs：go的穿透？）</p>
+<h3 id="瞄准"><a href="#瞄准" class="headerlink" title="瞄准"></a>瞄准</h3><p>需要考虑玩家如何瞄准、瞄准时手动的吗、枪会偏移吗（pubg呼吸），玩家有办法稳住枪吗、瞄准时自动的吗、有自动瞄准系统吗、后坐力、准星偏移、瞄准时是否能移动、消音、其他方式发现目标（红外线等）</p>
+<h2 id="弹药"><a href="#弹药" class="headerlink" title="弹药"></a>弹药</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E3%80%8A%E9%80%9A%E5%85%B3%EF%BC%81%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E4%B9%8B%E9%81%93%E3%80%8B/" rel="tag"># 《通关！游戏设计之道》</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/22/%E9%95%9C%E5%A4%B4/" rel="prev" title="镜头">
+      <i class="fa fa-chevron-left"></i> 镜头
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/01/%E6%95%8C%E4%BA%BA/" rel="next" title="敌人">
+      敌人 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%98%E6%96%97"><span class="nav-number">1.</span> <span class="nav-text">战斗</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%91%E6%88%98%E6%94%BB%E5%87%BB"><span class="nav-number">1.1.</span> <span class="nav-text">近战攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E6%9D%80%E6%8A%80"><span class="nav-number">1.2.</span> <span class="nav-text">必杀技</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A6%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">武器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%98%E6%96%97%E4%B8%AD%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.4.</span> <span class="nav-text">战斗中的移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E5%BE%A1"><span class="nav-number">1.5.</span> <span class="nav-text">防御</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%94%E7%94%B2"><span class="nav-number">1.5.1.</span> <span class="nav-text">盔甲</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%AA%E6%88%98"><span class="nav-number">1.6.</span> <span class="nav-text">枪战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%8A%A8"><span class="nav-number">1.6.1.</span> <span class="nav-text">行动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9E%84%E5%87%86"><span class="nav-number">1.6.2.</span> <span class="nav-text">瞄准</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B9%E8%8D%AF"><span class="nav-number">1.7.</span> <span class="nav-text">弹药</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SakurajimaNaoko</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SakurajimaNaoko</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
