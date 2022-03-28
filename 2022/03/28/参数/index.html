@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="参数类型自然数往往是数值计算的主体 自然数修正不会随主体变化而变化 无上限（开放域） 一次影响，就此一次 自然数成长是连续不断的 比例数往往是辅助修正 比例修正会随着主体变化而变化 有上限（封闭域） 比例数的成长是有限次的 总结升级自然数：没有限制 比例数：有限制（需要规划） 例如一次性的”被动技能“ 技能xxx%+xxx 前者使角色身上的相关属性能够发挥作用，后者体现技能的成长 其他宝石：自然数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="参数">
+<meta property="og:url" content="http://example.com/2022/03/28/%E5%8F%82%E6%95%B0/index.html">
+<meta property="og:site_name" content="Naoko">
+<meta property="og:description" content="参数类型自然数往往是数值计算的主体 自然数修正不会随主体变化而变化 无上限（开放域） 一次影响，就此一次 自然数成长是连续不断的 比例数往往是辅助修正 比例修正会随着主体变化而变化 有上限（封闭域） 比例数的成长是有限次的 总结升级自然数：没有限制 比例数：有限制（需要规划） 例如一次性的”被动技能“ 技能xxx%+xxx 前者使角色身上的相关属性能够发挥作用，后者体现技能的成长 其他宝石：自然数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-28T06:10:26.000Z">
+<meta property="article:modified_time" content="2022-03-28T06:12:43.891Z">
+<meta property="article:author" content="SakurajimaNaoko">
+<meta property="article:tag" content="数值策划">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/03/28/%E5%8F%82%E6%95%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>参数 | Naoko</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Naoko</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/28/%E5%8F%82%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SakurajimaNaoko">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Naoko">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          参数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-28 14:10:26 / 修改时间：14:12:43" itemprop="dateCreated datePublished" datetime="2022-03-28T14:10:26+08:00">2022-03-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><h3 id="自然数"><a href="#自然数" class="headerlink" title="自然数"></a>自然数</h3><p>往往是数值计算的主体</p>
+<p>自然数修正不会随主体变化而变化</p>
+<p>无上限（开放域）</p>
+<p>一次影响，就此一次</p>
+<p>自然数成长是连续不断的</p>
+<h3 id="比例数"><a href="#比例数" class="headerlink" title="比例数"></a>比例数</h3><p>往往是辅助修正</p>
+<p>比例修正会随着主体变化而变化</p>
+<p>有上限（封闭域）</p>
+<p>比例数的成长是有限次的</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>自然数：没有限制</p>
+<p>比例数：有限制（需要规划） 例如一次性的”被动技能“</p>
+<h3 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h3><p>xxx%+xxx</p>
+<p>前者使角色身上的相关属性能够发挥作用，后者体现技能的成长</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>宝石：自然数</p>
+<p>关键字（例如套装）：比例数</p>
+<p>因为宝石往往可以升级，而关键字往往不能升级</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="一级属性"><a href="#一级属性" class="headerlink" title="一级属性"></a>一级属性</h3><p>角色原始的属性，例如基础攻击力</p>
+<h3 id="二级属性"><a href="#二级属性" class="headerlink" title="二级属性"></a>二级属性</h3><p>实际出现在游戏中的数值</p>
+<h2 id="参数对应问题"><a href="#参数对应问题" class="headerlink" title="参数对应问题"></a>参数对应问题</h2><h3 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h3><p>游戏中设计与参数数量不匹配</p>
+<p>例子：只用武器加攻击力，但是衣服、帽子、裤子都可以加防御力</p>
+<h3 id="一对多的由来"><a href="#一对多的由来" class="headerlink" title="一对多的由来"></a>一对多的由来</h3><p>一对多：一个上级属性能推出多个不相干下级属性</p>
+<p>例子：力量决定攻击力、防御力、暴击率</p>
+<p>最好不要一对多</p>
+<h3 id="一对多的问题"><a href="#一对多的问题" class="headerlink" title="一对多的问题"></a>一对多的问题</h3><p>不同规律的成长曲线找不到理论上的平均点</p>
+<h3 id="《龙与地下城》为啥可以一推多"><a href="#《龙与地下城》为啥可以一推多" class="headerlink" title="《龙与地下城》为啥可以一推多"></a>《龙与地下城》为啥可以一推多</h3><p>桌游</p>
+<p>游戏时间短</p>
+<p>数据环境封闭（可穷举）</p>
+<h3 id="多对一"><a href="#多对一" class="headerlink" title="多对一"></a>多对一</h3><p>同一系统下，多个同类因素推出了一个结果</p>
+<p>例子：攻击对应的装备只有武器，而防御对应的装备有一副、腰带和鞋子</p>
+<p>参数不对应会导致价值问题，同样的投入，攻击力&gt;防御力</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%80%BC%E7%AD%96%E5%88%92/" rel="tag"># 数值策划</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/28/%E6%95%B0%E5%80%BC%E7%AD%96%E5%88%92/" rel="prev" title="数值策划">
+      <i class="fa fa-chevron-left"></i> 数值策划
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/28/%E5%8F%82%E6%95%B0%E8%A1%A8/" rel="next" title="参数表">
+      参数表 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">自然数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E4%BE%8B%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">比例数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7"><span class="nav-number">1.2.1.</span> <span class="nav-text">升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E8%83%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">技能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.2.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.1.</span> <span class="nav-text">一级属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.2.</span> <span class="nav-text">二级属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%AF%B9%E5%BA%94%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">参数对应问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.4.1.</span> <span class="nav-text">产生原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="nav-number">1.4.2.</span> <span class="nav-text">一对多的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.3.</span> <span class="nav-text">一对多的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%8A%E9%BE%99%E4%B8%8E%E5%9C%B0%E4%B8%8B%E5%9F%8E%E3%80%8B%E4%B8%BA%E5%95%A5%E5%8F%AF%E4%BB%A5%E4%B8%80%E6%8E%A8%E5%A4%9A"><span class="nav-number">1.4.4.</span> <span class="nav-text">《龙与地下城》为啥可以一推多</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%AF%B9%E4%B8%80"><span class="nav-number">1.4.5.</span> <span class="nav-text">多对一</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SakurajimaNaoko</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SakurajimaNaoko</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
