@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="LOL属性移速基础移速325-355，间距为5 潘森355，金克斯325 一般近战战士&gt;340,法师adc&lt;340 计算公式加速（基础移速+固定移速）*（1+百分比移速） 减速 当前移速*(1-减速百分比) 受到多个减速效果取最严重的一个 移速低于220时减速效果降低一半 且移速不会低于110 收益递减小于415：无损耗 415-490：减少20% 490+：减少50% 攻击距离基础攻">
+  <meta name="description" content="LOL属性移速基础移速325-355，间距为5 潘森355，金克斯325 一般近战战士&gt;340,法师adc&lt;340  计算公式加速（基础移速+固定移速）*（1+百分比移速） 减速 当前移速*(1-减速百分比) 受到多个减速效果取最严重的一个 移速低于220时减速效果降低一半 且移速不会低于110 收益递减小于415：无损耗 415-490：减少20% 490+：减少50% 攻击距离基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LOL经济系统的一些个人理解">
+<meta property="og:title" content="LOL属性">
 <meta property="og:url" content="http://example.com/2022/04/04/LOL%E5%B1%9E%E6%80%A7/index.html">
 <meta property="og:site_name" content="Naoko">
-<meta property="og:description" content="LOL属性移速基础移速325-355，间距为5 潘森355，金克斯325 一般近战战士&gt;340,法师adc&lt;340 计算公式加速（基础移速+固定移速）*（1+百分比移速） 减速 当前移速*(1-减速百分比) 受到多个减速效果取最严重的一个 移速低于220时减速效果降低一半 且移速不会低于110 收益递减小于415：无损耗 415-490：减少20% 490+：减少50% 攻击距离基础攻">
+<meta property="og:description" content="LOL属性移速基础移速325-355，间距为5 潘森355，金克斯325 一般近战战士&gt;340,法师adc&lt;340  计算公式加速（基础移速+固定移速）*（1+百分比移速） 减速 当前移速*(1-减速百分比) 受到多个减速效果取最严重的一个 移速低于220时减速效果降低一半 且移速不会低于110 收益递减小于415：无损耗 415-490：减少20% 490+：减少50% 攻击距离基础">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-04T13:31:20.000Z">
-<meta property="article:modified_time" content="2022-04-05T07:05:36.782Z">
+<meta property="article:modified_time" content="2022-04-05T12:41:26.699Z">
 <meta property="article:author" content="SakurajimaNaoko">
 <meta property="article:tag" content="LOL">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>LOL经济系统的一些个人理解 | Naoko</title>
+  <title>LOL属性 | Naoko</title>
   
 
 
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LOL经济系统的一些个人理解
+          LOL属性
         </h1>
 
         <div class="post-meta">
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-05 15:05:36" itemprop="dateModified" datetime="2022-04-05T15:05:36+08:00">2022-04-05</time>
+                <time title="修改时间：2022-04-05 20:41:26" itemprop="dateModified" datetime="2022-04-05T20:41:26+08:00">2022-04-05</time>
               </span>
 
           
@@ -197,7 +197,7 @@
       
         <h1 id="LOL属性"><a href="#LOL属性" class="headerlink" title="LOL属性"></a>LOL属性</h1><h2 id="移速"><a href="#移速" class="headerlink" title="移速"></a>移速</h2><h3 id="基础移速"><a href="#基础移速" class="headerlink" title="基础移速"></a>基础移速</h3><p>325-355，间距为5</p>
 <p>潘森355，金克斯325</p>
-<p>一般近战战士&gt;340,法师adc&lt;340</p>
+<p>一般近战战士&gt;340,法师adc&lt;340 </p>
 <h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p>加速（基础移速+固定移速）*（1+百分比移速）</p>
 <p>减速 当前移速*(1-减速百分比)</p>
 <p>受到多个减速效果取最严重的一个</p>
@@ -261,8 +261,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/04/03/%E6%95%B0%E5%80%BC%E7%AD%96%E5%88%92%E4%B8%AD%E6%9C%9F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" rel="prev" title="两个公式">
-      <i class="fa fa-chevron-left"></i> 两个公式
+    <a href="/2022/04/03/%E6%95%B0%E5%80%BC%E7%AD%96%E5%88%92%E4%B8%AD%E6%9C%9F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" rel="prev" title="数值策划中期知识点总结">
+      <i class="fa fa-chevron-left"></i> 数值策划中期知识点总结
     </a></div>
       <div class="post-nav-item">
     <a href="/2022/04/04/LOL%E7%BB%8F%E6%B5%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" rel="next" title="LOL经济系统的一些个人理解">
@@ -340,7 +340,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
