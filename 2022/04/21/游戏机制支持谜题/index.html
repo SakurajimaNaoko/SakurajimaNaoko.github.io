@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="游戏机制支持谜题谜题让玩家停下来并思考 迷题的谜题谜题不具有复玩性，不能真正的认定为游戏 好的谜题谜题原则1：让目标变得简单易懂玩家需要知道他们要做什么 谜题原则2：让它简单易上手玩家知道如何操作它 谜题原则3：给予进步感让玩家能够感到他离答案一点点地越来越接近 例子：《二十问》这个游戏最伟大之处在于玩家获得的进步感，通过他们的提问来缩小答案的范围 谜题原则4：给予可解决感玩家可能害怕自己是在无望">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏机制支持谜题">
+<meta property="og:url" content="http://example.com/2022/04/21/%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E6%94%AF%E6%8C%81%E8%B0%9C%E9%A2%98/index.html">
+<meta property="og:site_name" content="Naoko">
+<meta property="og:description" content="游戏机制支持谜题谜题让玩家停下来并思考 迷题的谜题谜题不具有复玩性，不能真正的认定为游戏 好的谜题谜题原则1：让目标变得简单易懂玩家需要知道他们要做什么 谜题原则2：让它简单易上手玩家知道如何操作它 谜题原则3：给予进步感让玩家能够感到他离答案一点点地越来越接近 例子：《二十问》这个游戏最伟大之处在于玩家获得的进步感，通过他们的提问来缩小答案的范围 谜题原则4：给予可解决感玩家可能害怕自己是在无望">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-21T02:14:33.000Z">
+<meta property="article:modified_time" content="2022-04-21T02:14:53.913Z">
+<meta property="article:author" content="SakurajimaNaoko">
+<meta property="article:tag" content="《游戏设计艺术》">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/04/21/%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E6%94%AF%E6%8C%81%E8%B0%9C%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>游戏机制支持谜题 | Naoko</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Naoko</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/21/%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E6%94%AF%E6%8C%81%E8%B0%9C%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SakurajimaNaoko">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Naoko">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          游戏机制支持谜题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-21 10:14:33 / 修改时间：10:14:53" itemprop="dateCreated datePublished" datetime="2022-04-21T10:14:33+08:00">2022-04-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="游戏机制支持谜题"><a href="#游戏机制支持谜题" class="headerlink" title="游戏机制支持谜题"></a>游戏机制支持谜题</h1><p>谜题让玩家停下来并思考</p>
+<h2 id="迷题的谜题"><a href="#迷题的谜题" class="headerlink" title="迷题的谜题"></a>迷题的谜题</h2><p>谜题不具有复玩性，不能真正的认定为游戏</p>
+<h2 id="好的谜题"><a href="#好的谜题" class="headerlink" title="好的谜题"></a>好的谜题</h2><h3 id="谜题原则1：让目标变得简单易懂"><a href="#谜题原则1：让目标变得简单易懂" class="headerlink" title="谜题原则1：让目标变得简单易懂"></a>谜题原则1：让目标变得简单易懂</h3><p>玩家需要知道他们要做什么</p>
+<h3 id="谜题原则2：让它简单易上手"><a href="#谜题原则2：让它简单易上手" class="headerlink" title="谜题原则2：让它简单易上手"></a>谜题原则2：让它简单易上手</h3><p>玩家知道如何操作它</p>
+<h3 id="谜题原则3：给予进步感"><a href="#谜题原则3：给予进步感" class="headerlink" title="谜题原则3：给予进步感"></a>谜题原则3：给予进步感</h3><p>让玩家能够感到他离答案一点点地越来越接近</p>
+<p>例子：《二十问》这个游戏最伟大之处在于玩家获得的进步感，通过他们的提问来缩小答案的范围</p>
+<h3 id="谜题原则4：给予可解决感"><a href="#谜题原则4：给予可解决感" class="headerlink" title="谜题原则4：给予可解决感"></a>谜题原则4：给予可解决感</h3><p>玩家可能害怕自己是在无望中浪费时间，继而在厌恶中放弃解题</p>
+<p>你需要告诉他们谜题是有解的，给予可见进步是个好方法</p>
+<h3 id="谜题原则5：逐步增加难度"><a href="#谜题原则5：逐步增加难度" class="headerlink" title="谜题原则5：逐步增加难度"></a>谜题原则5：逐步增加难度</h3><p>给予玩家控制谜题步骤顺序的能力是保证难度逐步提升的简单方法</p>
+<p>例子：纵横字谜——玩家有许多问题需要解答，每个答案给其他未解答问题的答案提示。玩家会自然呗吸引去回答对他们来说最简单的问题并且朝着更困难的题目努力迈进</p>
+<h3 id="谜题原则6：平行性让玩家休息"><a href="#谜题原则6：平行性让玩家休息" class="headerlink" title="谜题原则6：平行性让玩家休息"></a>谜题原则6：平行性让玩家休息</h3><p>一下子给出他们好几个不同的相关谜题</p>
+<p>这样玩家遇到一个无法解开后可以换别的来解决</p>
+<h3 id="谜题原则7：金字塔结构会延长兴趣"><a href="#谜题原则7：金字塔结构会延长兴趣" class="headerlink" title="谜题原则7：金字塔结构会延长兴趣"></a>谜题原则7：金字塔结构会延长兴趣</h3><p>给更大谜题提供某种线索的一小串谜题</p>
+<h3 id="谜题原则8：提示会延长兴趣"><a href="#谜题原则8：提示会延长兴趣" class="headerlink" title="谜题原则8：提示会延长兴趣"></a>谜题原则8：提示会延长兴趣</h3><h3 id="谜题原则9：给出答案"><a href="#谜题原则9：给出答案" class="headerlink" title="谜题原则9：给出答案"></a>谜题原则9：给出答案</h3><p>谜题带来的“啊哈”的喜悦是由看到答案触发的。</p>
+<p>如果他们真的被难住了，可以给他们一个能在游戏中自己找到答案的方法</p>
+<h3 id="谜题原则10：感知转移是把双刃剑"><a href="#谜题原则10：感知转移是把双刃剑" class="headerlink" title="谜题原则10：感知转移是把双刃剑"></a>谜题原则10：感知转移是把双刃剑</h3><p>结合了“要么解出要么解不出”的感知转移的谜题是把有问题的双刃剑。</p>
+<p>如果玩家能解出，则会有巨大的喜悦；如果不能解出，则会什么都得不到。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>谜题可以给任何一个游戏添加意义非凡的精神维度</p>
+<h2 id="透镜54：可达性"><a href="#透镜54：可达性" class="headerlink" title="透镜54：可达性"></a>透镜54：可达性</h2><p>玩家知道如何解开我的谜题或者玩我的游戏？我是否需要解释，或者它是显而易见的？</p>
+<p>我的谜题或者游戏是否和他们之前见过的东西相像？如果是这样，我怎么能让他们注意到这些相似点？如果不能这样，我怎么让他们理解谜题或游戏的动作？</p>
+<p>我的谜题或谜题能否吸引玩家而且让他们想感受到它及操作它？如果不是， 我如果改变它使它变得吸引人？</p>
+<h2 id="透镜55：可见进步"><a href="#透镜55：可见进步" class="headerlink" title="透镜55：可见进步"></a>透镜55：可见进步</h2><p>在你的游戏或者谜题里取得进步意味着什么？</p>
+<p>在我的游戏里有充足的成长吗？是否有方法能让我添加更多的中间步骤来让玩家取得成功？</p>
+<p>哪些成长是可见的，哪些成长是隐藏的？我是否能找到一种方法来揭示那些隐藏的成长？</p>
+<h2 id="透镜56：平行性"><a href="#透镜56：平行性" class="headerlink" title="透镜56：平行性"></a>透镜56：平行性</h2><p>在我的设计中存在瓶颈以致如果玩家不能通过一个特定的挑战就无法前进吗？如果是这样的，当玩家碰到这个挑战时，我是否可以给玩家增加一个平行挑战？</p>
+<p>如果平行挑战太相似了，平行性则无益。我的每个平行挑战之间是否足够不同，可以给玩家多样性的益处？</p>
+<p>我的平行挑战可以以某种方式联系起来吗？是否有办法使战胜挑战所取得的进步可以让解决另外的挑战变得更容易？</p>
+<h2 id="透镜57：金字塔"><a href="#透镜57：金字塔" class="headerlink" title="透镜57：金字塔"></a>透镜57：金字塔</h2><p>是否有方法将谜题中的所有部分注入游戏最终的单一挑战中？</p>
+<p>巨大的金字塔经常是由小金字塔组成的——我是否可以拥有一个具有前所未有挑战性的谜题元素层次，逐步地走向最终挑战？</p>
+<p>我的金字塔顶端的挑战是否有趣、吸引人而且清晰？它是否让人们想要为了达到它而愿意去工作？</p>
+<h2 id="透镜58：谜题"><a href="#透镜58：谜题" class="headerlink" title="透镜58：谜题"></a>透镜58：谜题</h2><p>我的游戏中的谜题是什么？</p>
+<p>我应不应该制作更多的谜题，或是更少？为什么？</p>
+<p>十条谜题原理原则中有哪些适用于我的谜题？</p>
+<p>我的游戏是否有任何不适宜的谜题？我怎么才能让它更好地融入游戏内？（运用49好透镜，优雅，来做到这点）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E3%80%8A%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E8%89%BA%E6%9C%AF%E3%80%8B/" rel="tag"># 《游戏设计艺术》</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/19/%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E5%BF%85%E9%A1%BB%E5%B9%B3%E8%A1%A1/" rel="prev" title="游戏机制必须平衡">
+      <i class="fa fa-chevron-left"></i> 游戏机制必须平衡
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E6%94%AF%E6%8C%81%E8%B0%9C%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">游戏机制支持谜题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%B7%E9%A2%98%E7%9A%84%E8%B0%9C%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">迷题的谜题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E7%9A%84%E8%B0%9C%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">好的谜题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%991%EF%BC%9A%E8%AE%A9%E7%9B%AE%E6%A0%87%E5%8F%98%E5%BE%97%E7%AE%80%E5%8D%95%E6%98%93%E6%87%82"><span class="nav-number">1.2.1.</span> <span class="nav-text">谜题原则1：让目标变得简单易懂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%992%EF%BC%9A%E8%AE%A9%E5%AE%83%E7%AE%80%E5%8D%95%E6%98%93%E4%B8%8A%E6%89%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">谜题原则2：让它简单易上手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%993%EF%BC%9A%E7%BB%99%E4%BA%88%E8%BF%9B%E6%AD%A5%E6%84%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">谜题原则3：给予进步感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%994%EF%BC%9A%E7%BB%99%E4%BA%88%E5%8F%AF%E8%A7%A3%E5%86%B3%E6%84%9F"><span class="nav-number">1.2.4.</span> <span class="nav-text">谜题原则4：给予可解决感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%995%EF%BC%9A%E9%80%90%E6%AD%A5%E5%A2%9E%E5%8A%A0%E9%9A%BE%E5%BA%A6"><span class="nav-number">1.2.5.</span> <span class="nav-text">谜题原则5：逐步增加难度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%996%EF%BC%9A%E5%B9%B3%E8%A1%8C%E6%80%A7%E8%AE%A9%E7%8E%A9%E5%AE%B6%E4%BC%91%E6%81%AF"><span class="nav-number">1.2.6.</span> <span class="nav-text">谜题原则6：平行性让玩家休息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%997%EF%BC%9A%E9%87%91%E5%AD%97%E5%A1%94%E7%BB%93%E6%9E%84%E4%BC%9A%E5%BB%B6%E9%95%BF%E5%85%B4%E8%B6%A3"><span class="nav-number">1.2.7.</span> <span class="nav-text">谜题原则7：金字塔结构会延长兴趣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%998%EF%BC%9A%E6%8F%90%E7%A4%BA%E4%BC%9A%E5%BB%B6%E9%95%BF%E5%85%B4%E8%B6%A3"><span class="nav-number">1.2.8.</span> <span class="nav-text">谜题原则8：提示会延长兴趣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%999%EF%BC%9A%E7%BB%99%E5%87%BA%E7%AD%94%E6%A1%88"><span class="nav-number">1.2.9.</span> <span class="nav-text">谜题原则9：给出答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%9C%E9%A2%98%E5%8E%9F%E5%88%9910%EF%BC%9A%E6%84%9F%E7%9F%A5%E8%BD%AC%E7%A7%BB%E6%98%AF%E6%8A%8A%E5%8F%8C%E5%88%83%E5%89%91"><span class="nav-number">1.2.10.</span> <span class="nav-text">谜题原则10：感知转移是把双刃剑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E5%B0%BE"><span class="nav-number">1.3.</span> <span class="nav-text">结尾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E9%95%9C54%EF%BC%9A%E5%8F%AF%E8%BE%BE%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">透镜54：可达性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E9%95%9C55%EF%BC%9A%E5%8F%AF%E8%A7%81%E8%BF%9B%E6%AD%A5"><span class="nav-number">1.5.</span> <span class="nav-text">透镜55：可见进步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E9%95%9C56%EF%BC%9A%E5%B9%B3%E8%A1%8C%E6%80%A7"><span class="nav-number">1.6.</span> <span class="nav-text">透镜56：平行性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E9%95%9C57%EF%BC%9A%E9%87%91%E5%AD%97%E5%A1%94"><span class="nav-number">1.7.</span> <span class="nav-text">透镜57：金字塔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E9%95%9C58%EF%BC%9A%E8%B0%9C%E9%A2%98"><span class="nav-number">1.8.</span> <span class="nav-text">透镜58：谜题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SakurajimaNaoko</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SakurajimaNaoko</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
