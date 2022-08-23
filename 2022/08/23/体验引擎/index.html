@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="体验引擎游戏设计意味着精心打磨一些规则，而这些规则能够赋予游戏中的事物以灵魂。 游戏机制和时间游戏是有许多机制组成的，这些机制定义了游戏如何运行 机制就是引导游戏运行的规则 在游戏中，游戏机制和玩家之间的交互就会产生时间。 事件是指在游戏过程中发生的某些事情 我们不会会直接编写事件，而是设计一套游戏机制，游戏机制会在游戏过程中产生事件 这种间接性使游戏和其他媒体的最基本区别 情感是首要因素事件必须">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有种体验叫做故事">
+<meta property="og:url" content="http://example.com/2022/08/23/%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E/index.html">
+<meta property="og:site_name" content="Naoko">
+<meta property="og:description" content="体验引擎游戏设计意味着精心打磨一些规则，而这些规则能够赋予游戏中的事物以灵魂。 游戏机制和时间游戏是有许多机制组成的，这些机制定义了游戏如何运行 机制就是引导游戏运行的规则 在游戏中，游戏机制和玩家之间的交互就会产生时间。 事件是指在游戏过程中发生的某些事情 我们不会会直接编写事件，而是设计一套游戏机制，游戏机制会在游戏过程中产生事件 这种间接性使游戏和其他媒体的最基本区别 情感是首要因素事件必须">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-23T10:01:17.000Z">
+<meta property="article:modified_time" content="2022-08-23T10:20:15.185Z">
+<meta property="article:author" content="SakurajimaNaoko">
+<meta property="article:tag" content="《体验引擎》">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/08/23/%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>有种体验叫做故事 | Naoko</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Naoko</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/23/%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SakurajimaNaoko">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Naoko">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          有种体验叫做故事
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-23 18:01:17 / 修改时间：18:20:15" itemprop="dateCreated datePublished" datetime="2022-08-23T18:01:17+08:00">2022-08-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="体验引擎"><a href="#体验引擎" class="headerlink" title="体验引擎"></a>体验引擎</h1><p>游戏设计意味着精心打磨一些规则，而这些规则能够赋予游戏中的事物以灵魂。</p>
+<h2 id="游戏机制和时间"><a href="#游戏机制和时间" class="headerlink" title="游戏机制和时间"></a>游戏机制和时间</h2><p>游戏是有许多机制组成的，这些机制定义了游戏如何运行</p>
+<p>机制就是引导游戏运行的规则</p>
+<p>在游戏中，游戏机制和玩家之间的交互就会产生时间。</p>
+<p>事件是指在游戏过程中发生的某些事情</p>
+<p>我们不会会直接编写事件，而是设计一套游戏机制，游戏机制会在游戏过程中产生事件</p>
+<p>这种间接性使游戏和其他媒体的最基本区别</p>
+<h2 id="情感是首要因素"><a href="#情感是首要因素" class="headerlink" title="情感是首要因素"></a>情感是首要因素</h2><p>事件必须激发某种情感才有意义</p>
+<p>有吸引力的游戏所产生的时间需要能够激发人类热血沸腾的情感</p>
+<p>游戏中有价值的情感可能十分微妙，通常情况下，玩家甚至不会注意到它</p>
+<p>感知并理解细微的情感是一种设计能力</p>
+<p>游戏中的情感绝不只是“有趣”而已</p>
+<h2 id="情感触发器"><a href="#情感触发器" class="headerlink" title="情感触发器"></a>情感触发器</h2><p>你的潜意识会不断分析你的处境和状况。当达到特定条件的时候，潜意识就会触发相应的情感</p>
+<p>情感触发器是指能够激发情感的事物或者意见</p>
+<h2 id="情感和改变"><a href="#情感和改变" class="headerlink" title="情感和改变"></a>情感和改变</h2><p>事件必须改变一些对人类而言有价值的东西才会激发情感</p>
+<p>人类价值是指对人们而言很重要、并且且可以在多种状态之间转换的事情，比如：生命/死亡、胜利/失败</p>
+<p>和感情有关的并不是事件本身，而是事件带来的人类价值的改变。被改变的人类价值越重要，改变的越频繁，产生的情感就会越强烈</p>
+<p>通过微小的事件来创造重要的人类价值的改变</p>
+<p>除了改变，参与改变也会出现情感因素</p>
+<p>情感的潜意识不仅只对当前发生的事件有反应，它也会时刻关注未发生的事件</p>
+<p>显示信息和改变信息所导致的情感其实是一样的，这意味着可以通过隐藏和展示信息来改变人类价值</p>
+<h2 id="情感黑盒"><a href="#情感黑盒" class="headerlink" title="情感黑盒"></a>情感黑盒</h2><p>我们无法直接感知到情感触发器背后的逻辑</p>
+<p>尽管不知道为什么会有这样或者那样的情感，我们依然会想当然地为情感分配一个原因，但是我们自己却丝毫没有觉察到这一点</p>
+<p>由于情感错位的缘故，想了解游戏如何影响我们是十分困难的事情</p>
+<h2 id="基本的情感触发器"><a href="#基本的情感触发器" class="headerlink" title="基本的情感触发器"></a>基本的情感触发器</h2><h3 id="学习引发的情感"><a href="#学习引发的情感" class="headerlink" title="学习引发的情感"></a>学习引发的情感</h3><p>一种只是所包含的人类价值越重要，我们学习它的动力就越大</p>
+<p>一种只是越是复杂和难以掌握，学会它的成就感就越大</p>
+<p>所以对游戏系设计者来说，挑战在于需要创造出具有许多不明显特性，有待玩家发掘的游戏系统</p>
+<p>当玩家获得某些新的信息时，如果他突然明白了原有的一些信息的含义，那么他就是有所领悟</p>
+<p>预定义的故事可以很好地做到这一点，因为它们能够控制玩家再某一时刻能够学到什么</p>
+<p>在最好玩的解密游戏中，玩家再解决难题之前总会获得一大堆的信息，他可以自行决定如何使用这些信息，以及它们之间的关系如何。</p>
+<h3 id="角色弧线引发的情感"><a href="#角色弧线引发的情感" class="headerlink" title="角色弧线引发的情感"></a>角色弧线引发的情感</h3><p>我们从他人身上感受到的请改会在自己身上反映出来：看到别人小，你也会跟他一起笑；看到别人痛苦，你也会难受</p>
+<p>游戏可以预定义角色弧线（角色弧线：在故事情节的发展过程中，角色状态的一系列改变），也可以通过游戏机制之间的交互而自然出现的（例如模拟人生这类游戏发生的故事）</p>
+<p>橘色弧线也满足了一种特别的求知欲望：我们热衷于了解自己的同类</p>
+<p>我们对他人的内心挣扎尤其感兴趣，因为只有在冲突过程中，人的内在价值和能力才会展现出来。他们面对的冲突越强烈，我们对他们的实本性的了解就越深入</p>
+<h3 id="挑战引发的情感"><a href="#挑战引发的情感" class="headerlink" title="挑战引发的情感"></a>挑战引发的情感</h3><p>对技巧和力量的测试可以产生多种情感</p>
+<p>当我们努力迎接挑战的时候，会进入到一种快乐的、精神高度集中的状态</p>
+<p>当通过这些测试时，我们会感到自己充满力量，无所不能，可以主宰一切；即使失败了，只要玩家感觉到有可能成功，他们也会想要再尝试一次并试图做得更好</p>
+<h3 id="社交引发的情感"><a href="#社交引发的情感" class="headerlink" title="社交引发的情感"></a>社交引发的情感</h3><p>多数社交游戏会使用明确的事件来引发玩家之间得交互，比如一个玩家击败了另一个玩家，或者两个玩家一起创造了某个东西</p>
+<p>在游戏中可以创造出各种令人叹为观止的社交行为，例如炫耀，建立信任再破坏它，开玩笑，击败陌生人，营救同伴</p>
+<h3 id="财富引发的情感"><a href="#财富引发的情感" class="headerlink" title="财富引发的情感"></a>财富引发的情感</h3><p>不管是何种情况，获得财富都会令人激动不已</p>
+<p>赌博游戏通过真正的财富来触发这种反应</p>
+<p>虚拟的财富也会触发情感</p>
+<h2 id="音乐引发的情感"><a href="#音乐引发的情感" class="headerlink" title="音乐引发的情感"></a>音乐引发的情感</h2><p>与大多数的情感触发器相比，音乐是极其微妙的</p>
+<p>即使主观意识并没有关注音乐，我们的潜意识仍然会将音乐源源不断地转换成对应的情感</p>
+<p>音效也可以制造情感</p>
+<h3 id="场景特效引发的情感"><a href="#场景特效引发的情感" class="headerlink" title="场景特效引发的情感"></a>场景特效引发的情感</h3><p>大场面可以迅速地激发人们的情感，但遗憾的是，这类情感缺乏深度而且持续性较短</p>
+<p>当这些壮观的场景特效能够增强已有情感时，效果往往还是不错的，比如说可以在玩家最终达到目标时来一个大场面是十分合适的</p>
+<h3 id="由美而引发的情感"><a href="#由美而引发的情感" class="headerlink" title="由美而引发的情感"></a>由美而引发的情感</h3><p>美并不是一个事务所具有的某种特征，而是事物对我们的影响</p>
+<p>即使是看到美的事物也会让人身心愉悦</p>
+<p>游戏中由各种展现美的方法</p>
+<h3 id="环境引发的情感"><a href="#环境引发的情感" class="headerlink" title="环境引发的情感"></a>环境引发的情感</h3><p>环境引发的情感不但种类繁多，而且具有强烈的感染力</p>
+<h3 id="新技术引发的情感"><a href="#新技术引发的情感" class="headerlink" title="新技术引发的情感"></a>新技术引发的情感</h3><p>一个游戏想要持续地获得成功，必须使用新技术给玩家带来前所未体验过的交互和场景</p>
+<h3 id="原始威胁引发的情感"><a href="#原始威胁引发的情感" class="headerlink" title="原始威胁引发的情感"></a>原始威胁引发的情感</h3><p>有些事物从古至今一直威胁我们人类，对这些食物的恐惧已经铭刻在我们的基因中，例如腐烂的食物</p>
+<p>但已被人滥用，人们已经习惯了这种低劣的手法，以至很多人会直接忽略它们</p>
+<h3 id="性暗示引发的情感"><a href="#性暗示引发的情感" class="headerlink" title="性暗示引发的情感"></a>性暗示引发的情感</h3><p>通过展示一些裸露得肌肤、一张漂亮的脸蛋，或者具有魅惑力的表情，人们会注意到找这些</p>
+<h2 id="虚拟层"><a href="#虚拟层" class="headerlink" title="虚拟层"></a>虚拟层</h2><p>有些游戏只有游戏机制。，例如扑克、足球等</p>
+<p>但大多数游戏不止以这种抽象的方式呈现，而是会通过图像和声音让玩家相信，游戏机制并不只是一个由各种规则组合的人造系统而已</p>
+<p>当游戏机制通过虚拟的情节包装之后就会具有另一个层面上的情感意义</p>
+<p>从游戏的底层来说,所有的游戏不过是由游戏机制构成的系统</p>
+<p>当我们为游戏机制套上一层虚构的外衣后，它们将拥有另一个层面的情感含义</p>
+<h3 id="虚拟和游戏机制对比"><a href="#虚拟和游戏机制对比" class="headerlink" title="虚拟和游戏机制对比"></a>虚拟和游戏机制对比</h3><p>虚拟和游戏机制都可以产生不同类型的情感</p>
+<p>游戏机制可以产生的情感比较有限</p>
+<p>虚构层通过角色、剧情，以及环境来产生感情</p>
+<p>虚构和游戏机制很容易相互影响</p>
+<p>由于虚拟和游戏之间总是会相互干扰，于是许多游戏选择重点突出它们中的一个，同时几乎完全忽略掉另一个</p>
+<p>游戏设计的最高境界是将完美的游戏机制和引人入胜的虚拟情节无缝地结合成一个具有深渊涵义地系统</p>
+<h2 id="构筑体验"><a href="#构筑体验" class="headerlink" title="构筑体验"></a>构筑体验</h2><p>体验是指存在与玩家脑海中的情感、想法，以及决策</p>
+<p>体验是一种贯穿游戏是中的，游戏对于玩家内心造成的所有影响的综合体现</p>
+<h3 id="通过混合情感来制造体验地方法"><a href="#通过混合情感来制造体验地方法" class="headerlink" title="通过混合情感来制造体验地方法"></a>通过混合情感来制造体验地方法</h3><h4 id="纯粹的情感"><a href="#纯粹的情感" class="headerlink" title="纯粹的情感"></a>纯粹的情感</h4><p>为了让某种情感效果最大化，我们可以把多种能够引发相同感情的情感触发器组合在一起</p>
+<h4 id="并列"><a href="#并列" class="headerlink" title="并列"></a>并列</h4><p>把完全不同的、貌似不兼容的一些感觉组合到一起</p>
+<p>把这些通常不会混合在一起的感觉组合在一起，可以产生一些奇怪的、有时甚至是非常有价值的效果</p>
+<h4 id="对立的情感"><a href="#对立的情感" class="headerlink" title="对立的情感"></a>对立的情感</h4><p>比如由共享所带来的社交乐趣经常会被残酷的技巧性竞争所破坏</p>
+<h4 id="氛围"><a href="#氛围" class="headerlink" title="氛围"></a>氛围</h4><p>当你体验的情感不属于某个具体的事件，而是像雾一样渗透到了游戏整体的体验之中，我们称之为“氛围”</p>
+<p>有些游戏会弱化那些单独的事件所引发的情感，而着重于烘托出一种浓厚的氛围，从而使得玩家沉浸其中。</p>
+<h4 id="情感变化"><a href="#情感变化" class="headerlink" title="情感变化"></a>情感变化</h4><p>“节奏曲线”</p>
+<p>游戏可以通过预先定义好的故事，也可以通过创造一些游戏机制，从而在游戏过程中生成这种曲线</p>
+<p>除了通过调整节奏来改变情感的强度，我们还可以改变情感的特性（从正面到负面）</p>
+<h4 id="心流"><a href="#心流" class="headerlink" title="心流"></a>心流</h4><p>心流是一种注意力高度集中的状态，等同于全神贯注于某种活动的感觉</p>
+<p>当玩家遇到某种足以匹敌他自身能力的挑战时，心流就会出现</p>
+<p>心流是大多数美好游戏体验的基础，并且它适用于所有的情感强度和效价</p>
+<h4 id="沉浸"><a href="#沉浸" class="headerlink" title="沉浸"></a>沉浸</h4><p>最强大的游戏体验之一是沉浸</p>
+<p>沉浸指的是，玩家自己的思维和他在游戏中的角色融为一体，于是发生在游戏角色身上的事件对玩家来说也意义重大，就好像这个事件是真实地发生在玩家身上一样</p>
+<p>描述沉浸现象最好的方法是让玩家的体验能够映射到游戏角色的体验中</p>
+<p>情绪二因论指出，情绪是由生理唤醒和认知因素这两部分所组成的</p>
+<p>唤醒指的是一种被激活并且准备开动的状态，说明你的身体做好了应对某些重大事件的准备</p>
+<p>认知因素是主观意识对唤醒状态的原因所作出的一种解释，大脑会根据可能发生的事情，将唤醒状态标识为某种强烈的情感</p>
+<p>为了能够真是烦引出游戏角色的体验。我们可以通过3个步骤来实现。首先，通过制造心流，把真实世界从玩家脑海中剥离出去。其次，通过游戏机制所创造的威胁和挑战来激发唤醒状态。最后，利用虚拟层来重新标识这个唤醒状态，使玩家的感受能够和游戏角色的感受完全匹配</p>
+<p>如果没有虚构，游戏机制所激发的状态就会被大脑识别成一种普通的兴奋</p>
+<h2 id="体验引擎-1"><a href="#体验引擎-1" class="headerlink" title="体验引擎"></a>体验引擎</h2><p>游戏是一种制造体验的人工系统</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E3%80%8A%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E%E3%80%8B/" rel="tag"># 《体验引擎》</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/23/%E6%95%85%E4%BA%8B%E5%92%8C%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84%E5%8F%AF%E4%BB%A5%E7%94%A8%E9%97%B4%E6%8E%A5%E6%8E%A7%E5%88%B6%E8%89%BA%E6%9C%AF%E6%80%A7%E5%9C%B0%E8%9E%8D%E4%B8%BA%E4%B8%80%E4%BD%93/" rel="prev" title="有种体验叫做故事">
+      <i class="fa fa-chevron-left"></i> 有种体验叫做故事
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/23/%E4%BC%98%E9%9B%85/" rel="next" title="有种体验叫做故事">
+      有种体验叫做故事 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E"><span class="nav-number">1.</span> <span class="nav-text">体验引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E5%92%8C%E6%97%B6%E9%97%B4"><span class="nav-number">1.1.</span> <span class="nav-text">游戏机制和时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E6%84%9F%E6%98%AF%E9%A6%96%E8%A6%81%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">情感是首要因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E6%84%9F%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">情感触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E6%84%9F%E5%92%8C%E6%94%B9%E5%8F%98"><span class="nav-number">1.4.</span> <span class="nav-text">情感和改变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%85%E6%84%9F%E9%BB%91%E7%9B%92"><span class="nav-number">1.5.</span> <span class="nav-text">情感黑盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%83%85%E6%84%9F%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">基本的情感触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.6.1.</span> <span class="nav-text">学习引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E5%BC%A7%E7%BA%BF%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.6.2.</span> <span class="nav-text">角色弧线引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%91%E6%88%98%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.6.3.</span> <span class="nav-text">挑战引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E4%BA%A4%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.6.4.</span> <span class="nav-text">社交引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A2%E5%AF%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.6.5.</span> <span class="nav-text">财富引发的情感</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9F%B3%E4%B9%90%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.</span> <span class="nav-text">音乐引发的情感</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF%E7%89%B9%E6%95%88%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.1.</span> <span class="nav-text">场景特效引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E7%BE%8E%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.2.</span> <span class="nav-text">由美而引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.3.</span> <span class="nav-text">环境引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E6%8A%80%E6%9C%AF%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.4.</span> <span class="nav-text">新技术引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%A8%81%E8%83%81%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.5.</span> <span class="nav-text">原始威胁引发的情感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E6%9A%97%E7%A4%BA%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.7.6.</span> <span class="nav-text">性暗示引发的情感</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%82"><span class="nav-number">1.8.</span> <span class="nav-text">虚拟层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%92%8C%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%88%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">1.8.1.</span> <span class="nav-text">虚拟和游戏机制对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E7%AD%91%E4%BD%93%E9%AA%8C"><span class="nav-number">1.9.</span> <span class="nav-text">构筑体验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%B7%B7%E5%90%88%E6%83%85%E6%84%9F%E6%9D%A5%E5%88%B6%E9%80%A0%E4%BD%93%E9%AA%8C%E5%9C%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.9.1.</span> <span class="nav-text">通过混合情感来制造体验地方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%AF%E7%B2%B9%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">纯粹的情感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E5%88%97"><span class="nav-number">1.9.1.2.</span> <span class="nav-text">并列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E7%AB%8B%E7%9A%84%E6%83%85%E6%84%9F"><span class="nav-number">1.9.1.3.</span> <span class="nav-text">对立的情感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B0%9B%E5%9B%B4"><span class="nav-number">1.9.1.4.</span> <span class="nav-text">氛围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%83%85%E6%84%9F%E5%8F%98%E5%8C%96"><span class="nav-number">1.9.1.5.</span> <span class="nav-text">情感变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%83%E6%B5%81"><span class="nav-number">1.9.1.6.</span> <span class="nav-text">心流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B2%89%E6%B5%B8"><span class="nav-number">1.9.1.7.</span> <span class="nav-text">沉浸</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E-1"><span class="nav-number">1.10.</span> <span class="nav-text">体验引擎</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SakurajimaNaoko</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SakurajimaNaoko</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
